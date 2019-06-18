@@ -1,0 +1,87 @@
+<!DOCTYPE html >
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+<title>管理员登录</title>
+<link href="../css/bootstrapss.min.css" title="" rel="stylesheet" />
+<link title="orange" href="../css/login.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+		html,body{
+		height:100%;
+		width:100%;
+		background: url(../img/loginbg1.jpg) no-repeat center center;
+		background-size:1920px 1000px;
+		perspective:500px;
+	}
+</style>
+</head>
+
+<body>
+  
+  <div style="height:1px;"></div>
+  <div class="login">
+     <header>
+	    <h1>后台管理员登录</h1>
+	 </header>
+	 <div class="sr">
+	    <form>
+		    <div class="name">
+				<label>
+				<i class="sublist-icon glyphicon glyphicon-user"></i>
+				</label>
+				<input type="text" id="adminName"  placeholder="这里输入登录名" class="name_inp">
+			</div>
+			 <div class="name">
+				<label>
+				<i class="sublist-icon glyphicon glyphicon-pencil"></i>
+				</label>
+				<input type="password" id="passWord" placeholder="这里输入登录密码" class="name_inp">
+			</div>
+			<input type="button" class="dl" name="" id="loginBtn" value="登录" />
+			<!--<button id="loginBtn" class="dl">登录</button>-->
+		</form>
+	 </div>
+  </div>
+
+<div style="text-align:center;">
+</div>
+<script src="../js/jquery-3.0.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/jquery.2.1.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="../js/config.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#loginBtn').on('click',function(){
+			Login();
+		})
+	})
+	
+		function Login(){
+			var username = $('#adminName').val();
+			var passWord = $('#passWord').val();
+			$.ajax({
+				type:"post",
+				url:config.Url+config.Urls.adminlogin,
+				async:true,
+				data:{
+					'username':username,
+					'password':passWord,
+				},
+				dataType:'json',
+				success:function(data){
+					if(data.errorCode == config.Errors.success){
+						window.location.href ="accountMana.html";
+					}
+					else{
+						alert("账号或密码错误");
+					}
+//					console.log(data);
+				},
+				error:function(){
+					alert("网络异常，请重新尝试！")
+				}
+			});
+		}
+</script>
+</body>
+</html>

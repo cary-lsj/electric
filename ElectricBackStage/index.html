@@ -1,0 +1,105 @@
+<!DOCTYPE html >
+<html >
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+<title>用户登录</title>
+<link href="css/bootstrapss.min.css" title="" rel="stylesheet" />
+<link title="orange" href="css/userLogin.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+	html,body{
+	height:100%;
+	width:100%;
+	background-color:#85F574;
+	background-image: url(img/logins.jpg);
+	background-size:1920px 1000px;
+	perspective:500px;
+}
+	input{
+		border: #85F574 1px solid;
+	}
+</style>
+
+
+<script>    
+  
+	//判断当前窗口是否有顶级窗口，如果有就让当前的窗口的地址栏发生变化，   
+	function loadTopWindow(){   
+	    if (window.top!=null && window.top.document.URL!=document.URL){   
+	        window.top.location= document.URL; //这样就可以让登陆窗口显示在整个窗口了   
+	    }   
+	}  
+</script>  
+</head>  
+<body onload="loadTopWindow()"> 
+  
+  <div style="height:1px;"></div>
+  <div class="login">
+     <header>
+	    <h1>用户登录</h1>
+	 </header>
+	 <div class="sr">
+	    <form>
+		    <div class="name">
+				<label>
+				<i class="sublist-icon glyphicon glyphicon-user"></i>
+				</label>
+				<input type="text" id="adminName"  placeholder="这里输入登录名" class="name_inp">
+			</div>
+			 <div class="name">
+				<label>
+				<i class="sublist-icon glyphicon glyphicon-pencil"></i>
+				</label>
+				<input type="password" id="passWord" placeholder="这里输入登录密码" class="name_inp">
+			</div>
+			<input type="button" class="dl" name="" id="loginBtn" value="登录" />
+			<!--<button id="loginBtn" class="dl">登录</button>-->
+		</form>
+	 </div>
+  </div>
+
+<div style="text-align:center;">
+</div>
+<script src="js/jquery-3.0.0.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.2.1.1.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/config.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript">
+	$(function(){
+		$('#loginBtn').on('click',function(){
+			Login();
+		})
+	})
+	
+		function Login(){
+			var adminName = $('#adminName').val();
+			var passWord = $('#passWord').val();
+			$.ajax({
+				type:"post",
+				url:config.Url+config.Urls.Login,
+				async:true,
+				data:{
+					'username':adminName,
+					'password':passWord,
+				},
+				dataType:'json',
+				success:function(data){
+					if(data.errorCode == config.Errors.success){
+						var name =sessionStorage.setItem('name',data.allinfo.name);
+						var username =sessionStorage.setItem('username',data.allinfo.username);
+						var yue =sessionStorage.setItem('yue',data.allinfo.balance);
+						var id = sessionStorage.setItem('uid',data.allinfo.id);
+						window.location.href ="page/accountMana.html";
+					}
+					else{
+						alert("账号或密码错误");
+					}
+//					console.log(data);
+				},
+				error:function(){
+					alert("网络异常，请重新尝试！")
+				}
+			});
+		}
+</script>
+</body>
+</html>

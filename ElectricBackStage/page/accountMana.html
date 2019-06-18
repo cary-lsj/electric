@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=9">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<!--<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">-->
+		<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<!--<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/bs3.7.css"/>
+		<script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-3.0.0.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/awesome-bootstrap-checkbox.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/build.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap-datetimepicker.min.css"/>
+		<script src="../js/bootstrap-datetimepicker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/bootstrap-datetimepicker.zh-CN.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/moment-with-locales(1).js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/Tools.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/page.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layer/mobile/layer.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../layer/mobile/need/layer.css"/>
+		<link rel="stylesheet" type="text/css" href="../layer/theme/default/layer.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/page.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/schedules.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/accountMana.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<title>accountMana</title>
+		<style type="text/css">
+			.active {
+			    border: 0;
+			    background-color: #85F574;
+			}
+			th,td{
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body >
+		<div class="dropdown-header" style="width: 100%;">
+			<!--logo-->
+			<div id="top" style="">
+				大商新玛特驻马店总店电力管理系统
+				<!--<img src="../img/biaoti.png"/>-->
+			</div>
+		   <!--用户信息-->
+			<div class="user-panel">
+			用户：<span id="username">lichi</span>
+				<a href="#" id="outLogin" style="">退出 <img src="../img/outLogin.png"/></a>
+				<a href="#" id="qhdl" style="color: #d81e06;"> <img src="../img/loginqie.png"/>
+					<span>切换登陆</span>
+				</a>
+
+			</div>
+		</div>
+		<div class="container" style="margin: 0 auto;">
+			<div class="panel-group pull-left" id="accordion" style="height: 100%;  width: 20%;">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" 
+							   href="#collapses">
+								主页
+							</a>
+						</h4>
+					</div>
+					<div id="collapses" class="panel-collapse collapse in">
+
+						<div class="panel-body active">
+							<a href="#index" class="navs">
+								首页
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" 
+							   href="#collapseOne">
+								个人信息
+							</a>
+						</h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse">
+
+						<div class="panel-body">
+							<a href="#userInfo" class="navs">
+								查看信息
+							</a>
+						</div>
+						<div class="panel-body ">
+							<a href="#changePassword" class="navs">
+								修改密码
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" 
+							   href="#collapseTwo">
+								用电情况
+							</a>
+						</h4>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse">
+						<div class="panel-body">
+							<a href="#addSubadmin" class="navs">
+								用电详情
+							</a>
+							
+						</div>
+
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion"
+							   href="#collapseThree">
+								缴费
+							</a>
+						</h4>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse">
+						<div class="panel-body">
+							<a href="#rechord" class="navs">
+								电费充值
+							</a>
+						</div>
+						<div class="panel-body">
+							<a href="#rechordInfo" class="navs">
+								充值记录
+							</a>
+						</div>
+						<div class="panel-body">
+							<a href="#select" class="navs">
+								意见反馈
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!--右边部分-->
+			<div class="pull-right" style="height: 100%;  width: 78%;margin-left: 2%;">
+				<!--用户详情-->
+				<div class="infos" id="userInfo" style="width: 100%;display: none;">
+					<div class="wrap">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+								用户信息        
+							</div>
+							<table id="w0" class="table table-bordered detail-view">
+								<tbody>
+									<tr><th>姓名</th>
+										<td 
+											<span id="names"></span>
+										</td>
+									</tr>
+									<tr><th>性别</th>
+										<td>
+											<span  id="sexs"></span>
+										</td>
+									</tr>
+									<tr><th>账号</th>
+										<td >
+											<span id="xhg">
+												
+											</span>
+										</td>
+									</tr>
+									<tr><th>联系方式</th>
+										<td >
+											<span id="dhs"></span>
+										</td>
+									</tr>
+									<tr><th>证件号码</th>
+										<td >
+											<span id="cords">
+												
+											</span>
+										</td>
+									</tr>
+									<tr><th>所属业种</th>
+										<td >
+											<span id="louh"></span>
+										</td>
+									</tr>
+									<tr><th>所属分区</th>
+										<td >
+											<span id="fjH"></span>
+										</td>
+									</tr>
+									<tr><th>专柜名称</th>
+										<td >
+											<span id="xy"></span>
+										</td>
+									</tr>
+								</tbody>
+							</table>    
+						</div>
+					</div>
+					<div class="input-group" style="text-align: center;">
+						<button type="button" id="btnUpdate" class="btn btn-primary">修改</button>
+					</div>
+				</div>
+			
+				<!--修改密码-->
+				<div class="infos" id="changePassword" style="width: 100%;display: none;">
+					<form role="form">
+						<div class="form-group">
+							<span for="name" style="font-family: '微软雅黑'; font-size: 20px; font-weight: 100;">修改密码</span>
+							<!--</br>-->
+							<hr/>
+							<div class="input-group ">
+								<span class="pull-left" style="text-indent:2em;display: inline-block; line-height: 40px; height: 40px;">
+									原密码：
+								</span>
+								<input type='password' id="ymm" value="" class="form-control" id='' style="width: 30%; line-height:40px;height: 40px;" />
+							</div>
+							<br />
+							<div class="input-group ">
+								<span class="pull-left" style="text-indent:2em;display: inline-block; line-height: 40px; height: 40px;">
+									新密码：
+								</span>
+								<input type='password' id="xmm" value="" class="form-control" id='' style="width: 30%; line-height:40px;height: 40px;" />
+							</div>
+							<br />
+							<div class="input-group ">
+								<div class=""style="text-indent:6em;color: #c1cccc;" >
+									<p>密码为6-12个字符,</p>
+									<p>建议使用字母、数字符号的组合</p>
+								</div>
+							</div>
+							<br />
+							<div class="input-group ">
+								<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">
+									确认新密码：
+								</span>
+								<input type='password' id="qrmm" value="" class="form-control" id='' style="width: 30%; line-height:40px;height: 40px;" />
+							</div>
+							<br />
+							
+							<div class="input-group" style="text-align: center;width: 50%;">
+								<button type="button" class="btn btn-primary" id="btnchangeP">提交</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!--用电情况-->
+				<div class="infos" id="addSubadmin" style="width: 100%;display: none;">
+					<div  data-pjax-container="" data-pjax-push-state="" data-pjax-timeout="1000">
+					    	<div  class="grid-view hide-resize" data-krajee-grid="kvGridInit_4d208264">
+					    		<div class="panel panel-default">
+					    			<div class="panel-heading">
+					    				<div class="pull-right">
+					    					<div class="summary">第<b>1-1</b>条，共<b>1</b>条数据.
+					    					</div>
+					    				</div>
+									    <h3 class="panel-title">
+									        <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> 产品信息
+									    </h3>
+									   
+					    			</div>
+
+					    			<div  class="table-responsive kv-grid-container">
+					    				<table class="kv-grid-table table table-hover table-bordered kv-table-wrap">
+					    					<thead>
+					    						<tr>
+					    							<th data-col-seq="0" style="width: 8%;">产品ID</th>
+					    							<th data-col-seq="1" style="width: 10%;">产品名称</th>
+					    							<th data-col-seq="2" style="width: 14%;">计费（元/度）</th>
+					    							<th data-col-seq="3" style="width: 13%;">缴费总计</th>
+					    							<th data-col-seq="4" style="width: 15%;">剩余电量</th>
+					    							<th data-col-seq="5" style="width: 15%;">已用电量</th>
+					    							<th data-col-seq="6" style="width: 10%;">产品余额</th>
+					    							<th data-col-seq="7" style="width:15%;">结算日期</th>
+					    						</tr>
+					    					</thead>
+					    					<tbody>
+					    						<tr data-key="6">
+					    							<td data-col-seq="0">1</td>
+					    							<td data-col-seq="1">专柜用电</td>
+					    							<td data-col-seq="2" id="ydxdj">1.5元/度</td>
+					    							<td data-col-seq="3" id="jfxzj">1000元</td>
+					    							<td data-col-seq="4" id="syxdl">1000度</td>
+					    							<td data-col-seq="5" id="yyxdl">0.0000</td>
+					    							<td data-col-seq="6" id="cpxye">0元</td>
+					    							<td data-col-seq="7" ><span class="not-set">(未设置)</span></td>
+					    						</tr>
+					    					</tbody>
+					    				</table>
+					    			</div>
+					    			<div class="kv-panel-after"></div>
+					    		</div>
+					    	</div>
+					    </div>
+				</div>
+				<!--修改信息-->
+				<div class="infos" id="updateUserinfo" style="width: 100%;display: none;">
+					<form role="form">
+						<div class="form-group">
+							<span for="name" style="font-family: '微软雅黑'; font-size: 20px; font-weight: 100;">修改信息</span>
+							<!--</br>-->
+							<hr/>
+							<div class="input-group">
+								<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">
+									账号：
+									<span id="usernames">
+										
+									</span>
+								</span>
+								<!--<input type='text' value="yanglizhi" class="form-control" style="width: 30%; line-height:40px;height: 40px;" />-->
+							</div>
+							<br />
+							<div class="input-group">
+								<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">
+									姓名：
+									<span id="xingm">
+										
+									</span>
+								</span>
+								<!--<input type='text' value="" class="form-control" style="width: 30%; line-height:40px;height: 40px;" />-->
+							</div>
+							<br />
+							<div class="input-group">
+								<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">
+									性别：
+								</span>
+								<select class="form-control" style="width: 30%; height: 40px" id="seex">
+									<option value="1">男</option>
+									<option value="2">女</option>
+								</select>
+							</div>
+							<br />
+							<div class="input-group">
+								<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">
+									身份证号：
+								</span>
+								<input type='text' id="myCord" class="form-control" style="width: 30%; line-height:40px;height: 40px;" />
+							</div>
+							<br />
+							<div class="input-group">
+								<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">
+									联系方式：
+								</span>
+								<input type='text' id="myTel" class="form-control" style="width: 30%; line-height:40px;height: 40px;" />
+							</div>
+							<br />
+						</div>
+						<div class="input-group" style="text-align: center;">
+							<button type="button" id="btnUp" class="btn btn-primary">提交</button>
+						</div>
+					</form>
+				</div>
+				<!--充值页面-->
+				<div class="infos" id="rechord" style="width: 100%;display: none;">
+					<form role="form">
+						<div class="form-group">
+							<span for="name" style="font-family: '微软雅黑'; font-size: 20px; font-weight: 100;">电费充值</span>
+							<!--</br>-->
+							<hr/>
+								<div class="input-group">
+									<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">
+										负责人：
+										<span id="czfzr">
+											
+										</span>
+									</span>
+									<!--<input type='text' value="yanglizhi" class="form-control" style="width: 30%; line-height:40px;height: 40px;" />-->
+								</div>
+								<br />
+								<div class="input-group">
+									<span class="pull-left"  style="display: inline-block; line-height: 40px; height: 40px;">
+										帐号：
+										<span id="czzh">
+											
+										</span>
+									</span>
+									<!--<input type='text' value="yanglizhi" class="form-control" style="width: 30%; line-height:40px;height: 40px;" />-->
+								</div>
+								<br />
+								<div class="input-group">
+										<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">
+											专柜名：
+											<span id="zgmz">
+
+											</span>
+										</span>
+									<!--<input type='text' value="yanglizhi" class="form-control" style="width: 30%; line-height:40px;height: 40px;" />-->
+								</div>
+								<br />
+								<div class="input-group">
+										<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">
+											充值金额：
+										</span>
+									<input type='text' id="czje" value="" class="form-control" style="width: 30%; line-height:40px;height: 40px;" />
+								</div>
+								<br />
+							<div class="input-group" style="text-align: center;">
+								<button type="button" id="btncz" class="btn btn-primary">充值</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!--首页显示-->
+				<div class="infos" id="index"style="width: 100%">
+					<div class="wrap">
+					    <div class="row">
+					        <div class="col-lg-4">
+					            <div class="panel panel-default">
+					                <div class="panel-heading">
+					                    <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+					                   		 用户信息
+					                    <a class="pull-right" id="moreuser"style="color: cornflowerblue;" >更多&gt;&gt;</a>
+					                </div>
+					                <ul class="list-group">
+					                	<li class="list-group-item">
+					                		<span class="glyphicon glyphicon-user"></span>
+					                		<label class="list-group-label">账号:</label>
+					                		<span id="xSuserzh">
+					                			
+					                		</span>
+					                	</li>
+					                	<li class="list-group-item">
+					                		<span class="glyphicon glyphicon-th-list"></span>
+					                		<label class="list-group-label">姓名:</label>
+					                		<span id="xSuserxm">
+					                			
+					                		</span>
+					                	</li>
+					                	<li class="list-group-item">
+					                		<span class="glyphicon glyphicon-info-sign"></span>
+					                		<label class="list-group-label">状态:</label>
+					                		<a class="btn btn-xs btn-success">正常</a>
+					                	</li>
+					                	<li class="list-group-item">
+					                		<span class="glyphicon glyphicon-usd"></span>
+					                		<label class="list-group-label">余额:</label>
+					                		<span id="xSuserye">
+					                			
+					                		</span>
+					                		<a class="btn btn-xs btn-danger pull-right" href="#rechord" id="cpcz">产品充值 
+					                			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true">	
+					                			</span>
+					                		</a>
+					                	</li>
+					                </ul>            
+					            </div>
+					        </div>
+					        <!---->
+					        <div class="col-lg-8">
+					            <div class="panel panel-default">
+					                <div class="panel-heading">
+					                    <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+					                    	公告信息
+										<div class="" style="display: inline-block;">
+											<a  class="btn btn-xs btn-danger" id="Syt" style="margin-left: 30px;display: inline-block; width: 100px;">上一条</a>
+					                    	<a  class="btn btn-xs btn-warning" id="Xyt" style="margin-left: 30px; display: inline-block;width: 100px;">下一条</a>
+										</div>
+					                    
+					                </div>
+					                <div class="table-responsive">
+					                    <div id="w1" class="grid-view hide-resize" data-krajee-grid="kvGridInit_9bad964f">
+
+					                    	<div id="w1-container" class="table-responsive kv-grid-container">
+					                    		<div class="gongg" style="margin: 10px;">
+					                    			<table class="kv-grid-table table table-bordered table-striped kv-table-wrap">
+						                    			<thead>
+						                    				<tr>
+						                    					<th data-col-seq="0" style="width: 100%;">
+						                    						<span id="admins">
+						                    							发布人：admin
+						                    						</span>
+						                    						<span id="times"style="margin-left: 20px;">
+						                    							11111
+						                    						</span>
+						                    					</th>
+						                    				</tr>
+						                    			</thead>
+						                    			<tbody>
+						                    				<tr data-key="32790523">
+						                    					<td data-col-seq="0" id="content">201508010059</td>
+						                    				</tr>
+						                    			</tbody>
+						                    		</table>
+					                    		</div>
+												<!--<div>-->
+													<!--<ul class="page" id="page">-->
+													<!--</ul>-->
+												<!--</div>-->
+					                    		
+					                    	</div>  
+					                    </div>               
+					                </div>
+					            </div>
+					        </div>
+					    </div>
+					    <div id="w3-pjax" data-pjax-container="" data-pjax-push-state="" data-pjax-timeout="1000">
+					    	<div id="w3" class="grid-view hide-resize" data-krajee-grid="kvGridInit_4d208264">
+					    		<div class="panel panel-default">
+					    			<div class="panel-heading">
+					    				<div class="pull-right">
+					    					<div class="summary">第<b>1-1</b>条，共<b>1</b>条数据.
+					    					</div>
+					    				</div>
+									    <h3 class="panel-title">
+									        <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> 产品信息
+									    </h3>
+									   
+					    			</div>
+
+					    			<div id="w3-container" class="table-responsive kv-grid-container">
+					    				<table class="kv-grid-table table table-hover table-bordered kv-table-wrap">
+					    					<thead>
+					    						<tr>
+					    							<th data-col-seq="0" style="width: 8%;">产品ID</th>
+					    							<th data-col-seq="1" style="width: 11%;">产品名称</th>
+					    							<th data-col-seq="2" style="width: 14%;">计费（元/度）</th>
+					    							<th data-col-seq="3" style="width: 13%;">缴费总计</th>
+					    							<th data-col-seq="4" style="width: 8%;">剩余电量</th>
+					    							<th data-col-seq="5" style="width: 8%;">已用电量</th>
+					    							<th data-col-seq="6" style="width: 10%;">产品余额</th>
+					    							<th data-col-seq="7" style="width: 12%;">结算日期</th>
+					    						</tr>
+					    					</thead>
+					    					<tbody>
+					    						<tr data-key="6">
+					    							<td data-col-seq="0">1</td>
+					    							<td data-col-seq="1">专柜用电</td>
+					    							<td data-col-seq="2" id="yddj">1.5元/度</td>
+					    							<td data-col-seq="3" id="jfzj">1000元</td>
+					    							<td data-col-seq="4" id="sydl">1000度</td>
+					    							<td data-col-seq="5" id="yydl">0.0000</td>
+					    							<td data-col-seq="6" id="cpye">0元</td>
+					    							<td data-col-seq="7" ><span class="not-set">(未设置)</span></td>
+					    						</tr>
+					    					</tbody>
+					    				</table>
+					    			</div>
+					    			<div class="kv-panel-after"></div>
+					    		</div>
+					    	</div>
+					    </div>
+					</div>
+			</div>
+				<!--充值记录-->
+				<div class="infos" id="rechordInfo" style="width: 100%;display: none;">
+					<div class="wrap">
+					    <div id="w0-pjax" data-pjax-container="" data-pjax-push-state="" data-pjax-timeout="1000">
+					    	<div id="w0" class="grid-view hide-resize" data-krajee-grid="kvGridInit_d3f7a457">
+					    		<div class="panel panel-default">
+					    			<div class="panel-heading">
+					    				<div class="pull-right"></div>
+									    <h3 class="panel-title">
+									        <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> 缴费清单
+									    </h3>
+					    				<div class="clearfix"></div>
+					    			</div>
+					    			<div class="kv-panel-before">    
+					    				<div class="pull-right">
+					    					<div class="btn-toolbar kv-grid-toolbar" role="toolbar">
+												<form class="kv-export-form" action="/gridview/export/download" method="post" style="display:none" target="kvDownloadDialog">
+													<input type="hidden" name="_csrf" value="RTFMYWNNV18zQQYrKiIvEAZUdRMtLBQJIH0bBlUYHjowZXUABQswLA==">
+													<input type="hidden" name="export_filetype">
+													<input type="hidden" name="export_filename">
+													<input type="hidden" name="export_mime">
+													<input type="hidden" name="export_config">
+													<input type="hidden" name="export_encoding" value="utf-8">
+													<input type="hidden" name="export_bom" value="1">
+												<textarea name="export_content"></textarea>
+												</form>
+
+				        					</div>    
+					    				</div>
+					    				<div class="clearfix"></div>
+					    			</div>
+					    				<div id="w0-container" class="table-responsive kv-grid-container" >
+					    					<table class="kv-grid-table table table-hover table-bordered kv-table-wrap table03" >
+					    						<thead>
+					    							<tr>
+					    								<th data-col-seq="0" style="width: 10%;">序号</th>
+					    								<th data-col-seq="1" style="width: 10%;">用户名</th>
+					    								<th data-col-seq="2" style="width: 10%;">缴费金额</th>
+					    								<th data-col-seq="3" style="width: 10%;">缴费类型</th>
+					    								<th data-col-seq="4" style="width: 10%;">支付方式</th>
+					    								<th data-col-seq="5" style="width: 10%;">产品</th>
+					    								<th data-col-seq="6" style="width: 20%;">缴费时间</th>
+					    							</tr>
+					    						</thead>
+					    						<tbody >
+					    							
+					    						</tbody>
+					    						<tfoot>
+					    							<tr class="kv-page-summary warning">
+					    								<td>总计</td>
+					    								<td>0.00</td>
+					    								<td>&nbsp;</td>
+					    								<td>&nbsp;</td>
+					    								<td>&nbsp;</td>
+					    								<td>&nbsp;</td>
+					    							</tr>
+					    						</tfoot>
+					    					</table>
+					    				</div>
+					    				<!--fenye-->
+										<div>
+										   <ul class="page" id="page">
+										   </ul>
+										</div>
+
+					    				<div class="kv-panel-after"></div>
+					    				<div class="panel-footer">    
+					    					<div class="kv-panel-pager">
+					    						
+					    					</div>
+					    					<div class="clearfix"></div>
+					    				</div>
+					    		</div>
+					    	</div>
+					    </div>
+					</div>
+				</div>
+				<!--提交反馈-->
+				<div class="infos" id="select" style="display: none; width: 100%;">
+			        <div class="col-lg-12">
+			            <div class="panel panel-default">
+			                <div class="panel-heading">
+			                    <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+			                    	反馈意见  
+			                </div>
+			                <div class="table-responsive">
+			                    <div id="w1" class="grid-view hide-resize" data-krajee-grid="kvGridInit_9bad964f">
+			                    	<div id="w1-container" class="table-responsive kv-grid-container">
+			                    		<div class="gongg" style="margin: 10px;">
+			                    			<form role="form">
+												<div class="form-group">
+													<div class="input-group">
+														<textarea id="addnotice" class="form-control" rows="3"style="width: 100%; height: 180px; font-size: 0.8rem;"></textarea>
+													</div>
+													<br />
+												</div>
+												<div class="input-group" style="text-align: center; width: 40%;">
+													<button type="button" id="btntjfk" class="btn btn-primary">提交</button>
+												</div>
+											</form>
+			                    		</div>
+			                    	</div>  
+			                    </div>               
+			                </div>
+			            </div>
+			        </div>
+					
+				
+				</div>
+			</div>
+		</div>
+	</body>
+	
+	<script src="../js/schedule.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/config.js"></script>
+	<script src="../js/account.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		//
+		$(function(){
+			var user =sessionStorage.getItem('name');
+    		$('#username').html(user);
+	    	$('#outLogin').on('click',function(){
+	    		alert("您确定要退出登录吗？")
+	    		loginout();
+	    	})
+	    	//登出函数
+	    	function loginout() {
+	    		window.location.href= '../index.html';
+	    	}
+	    	
+	    	$('#qhdl').on('click',function(){
+				layer.open({
+						content: '您确定要切换用户登录吗？', 
+						btn: ['确认','取消'],  
+				         yes: function(index, layero) {  
+					        window.location.href= '../admin/index.html';
+					    },
+					    btn2: function(index, layero) {  
+  							layer.msg('您取消了操作');
+                        }  
+				   });
+    		})	
+			//获取当前登录用户的信息
+			getUserinfo();
+			//遍历导航，绑定单击事件
+			$('.panel-body').each(function(index){
+                $(this).on('click',function(){
+                	//移除所有栏目的样式
+                    $('.panel-body').removeClass("active");
+                    //为当前电机的栏目添加样式
+                    $(this).addClass("active");
+                    //截取当前点击栏目href中的内容，以#好为分割符号
+                    strings = $(this).children()[0].href;
+                    str = "#";
+                    //得到#后面的数据
+					var str_after = strings.split(str)[1];
+					//先隐藏所有的class为infos的div
+					$('.infos').each(function(index){
+						$(this).css("display","none");
+					});
+//					将刚点击的栏目中href中的内容对应的div显示出来
+					document.getElementById(str_after).style.display = "block";
+                })
+            })
+			
+			
+			//首页上一条】
+			$('#Syt').on("click",function(){
+				//获取当前页+1.得到要拿到的页码（也就是下一页的页码）
+				var pages = (parseInt(sessionStorage.getItem("page"))+1);
+//				判断现在的页码+1后,是否大于总页码
+				if(pages>sessionStorage.getItem("allpage")){
+					//大于，则说明已经超过了最后一页的范围，提示没有更多数据
+					layer.open({
+						content: '没有更多数据',
+						time:2,
+					   });
+				}else{
+					//小于或等于则向服务器请求拉取数据
+					searchnotice(pages);
+				}
+				
+			})
+			//首页下一条按钮
+			$('#Xyt').on("click",function(){
+				//获取当前页-1.得到要拿到的页码（也就是上一页的页码）
+				var pages = (parseInt(sessionStorage.getItem("page"))-1);
+//				判断页码是否小于1页
+				if(pages<1){
+					////则说明已经超过了最后一页的范围，提示没有更多数据
+					layer.open({
+						content: '当前已经是最新的公告',
+						time:2,
+					   });
+				}else{
+					//大于或等于则向服务器请求拉取数据
+					searchnotice(pages);
+				}
+				
+			})
+			//首页充值页面的显示
+			$('#cpcz').on('click',function(){
+				$('#rechord').css('display','block');
+				$('#index').css('display','none')
+			})
+			
+			//修改密码
+			$('#btnchangeP').on('click',function(){
+				changepassword()
+			})
+			
+			//首页更多
+			$('#moreuser').on('click',function(){
+				$('#index').css('display','none');
+				$('#userInfo').css('display','block');
+				getUserinfo();
+			})
+			
+			//充值提交按钮
+			$('#btncz').on('click',function(){
+				Userrecharge();
+			})
+
+			$('#btnUpdate').on('click',function(){
+//				隐藏我的信息的页面
+				$('.infos').css("display","none");
+				//显示修改信息页面
+				$('#updateUserinfo').css("display","block");
+				//从sessionStorage中取到账号。姓名的内容将其展示在页面上
+				var xueh = sessionStorage.getItem('username')
+				var xingm = sessionStorage.getItem('name')
+				var tel =sessionStorage.getItem('tel');
+				var idcord = sessionStorage.getItem('idcord')
+				$('#usernames').html(xueh);
+				$('#xingm').html(xingm);
+				$('#myCord').val(idcord);
+				$('#myTel').val(tel)
+				
+			})
+			//点击修改按钮
+			$('#btnUp').on('click',function(){
+				//修改数据
+				updateuserinfo();
+			})
+			
+			//提交反馈
+			$('#btntjfk').on('click',function(){
+				tjfk();
+			})
+		})
+		
+
+
+
+
+
+
+		
+	</script>
+</html>

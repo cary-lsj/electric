@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta http-equiv="X-UA-Compatible" content="IE=9">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="renderer" content="webkit">
+		<!--<link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">-->
+	<script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+	<!--<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>-->
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/bs3.7.css"/>
+		<script src="../js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery-3.0.0.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/awesome-bootstrap-checkbox.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/build.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/bootstrap-datetimepicker.min.css"/>
+		<script src="../js/config.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/Tools.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/bootstrap-datetimepicker.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/bootstrap-datetimepicker.zh-CN.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/moment-with-locales(1).js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/Tools.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/page.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layer/layer.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../layer/mobile/layer.js" type="text/javascript" charset="utf-8"></script>
+		<link rel="stylesheet" type="text/css" href="../layer/mobile/need/layer.css"/>
+		<link rel="stylesheet" type="text/css" href="../layer/theme/default/layer.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/page.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/schedules.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/accountMana.min.css"/>
+		<link rel="stylesheet" type="text/css" href="../css/index.css"/>
+		<title>accountMana</title>
+		<style type="text/css">
+			@media only screen and (max-width: 500px) {
+				body,.container{
+					width: 100%;
+				}
+				#accordion{
+					width: 15%;
+				}
+				.pull-right{
+					width: 80%;
+				}
+				/*.sr{*/
+					/*padding:30px 70px!important;*/
+				/*}*/
+			}
+			.dropdown-header{
+			filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#bce8f1,endcolorstr=#FFFFFF,gradientType=0);
+			-ms-filter:alpha(opacity=100 finishopacity=50 style=1 startx=0,starty=0,finishx=0,finishy=150) progid:DXImageTransform.Microsoft.gradient(startcolorstr=#bce8f1,endcolorstr=#FFFFFF,gradientType=0);/*IE8*/
+			background:#bce8f1; /* 一些不支持背景渐变的浏览器 */
+			background:-moz-linear-gradient(top, #bce8f1, #FFFFFF);
+			background:-webkit-gradient(linear, 0 0, 0 bottom, from(#bce8f1), to(#FFFFFF));
+			background:-o-linear-gradient(top, #bce8f1, #FFFFFF);
+			background-color: #bce8f1;
+			line-height: 100px;
+			margin-bottom: 10px;
+			}
+			
+			
+			/*.layui-m-layercont{
+				text-align: center;
+				margin-left: 200px;
+				margin-bottom: 50px;
+			}*/
+		</style>
+	</head>
+	<body >
+		<div class="dropdown-header">
+			<!--logo-->
+			<div id="top" style="margin: 0 auto;padding-bottom: 15px;padding-left:5%;font-size: 5rem; font-family: '微软雅黑'; color: #000000;">
+				大商新玛特驻马店总店电力管理系统
+				<!--<img src="../img/biaoti.png"/>-->
+			</div>
+		   <!--用户信息-->
+			<div class="user-panel">
+				<span style="width: 50%;margin-right: 0.5rem; font-size: 1.5rem;">管理员：
+				 	<span id="username">
+				  		admin
+				  	</span>
+				</span>
+				  <!--<a href="#"><i class="fa fa-circle text-success"></i> 在线</a>-->
+				<a href="#" id="outLogin" style="width: 40%; color: #1296db;font-size: 1.5rem;">退出 <img src="../img/outLogin.png"/></a>
+				<span style="width: 50%;margin-left: 0.5rem;font-size: 1.5rem;">
+					<a href="#" id="qhdl" style="width: 40%; color: #d81e06;font-size: 0.5rem;"> <img src="../img/loginqie.png"/>
+						<span>
+				  			切换登陆
+				  		</span>
+					</a>
+				  	
+				  </span>
+			</div>
+		</div>
+		<div class="container" style="margin-top: 50px; margin: 0 auto;">
+			<div class="panel-group pull-left" id="accordion">
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+								用户信息
+							</a>
+						</h4>
+					</div>
+					<div id="collapseOne" class="panel-collapse collapse in">
+
+						<div class="panel-body active">
+							<a href="#userInfo" class="navs">
+								查看信息
+							</a>
+						</div>
+						<div class="panel-body">
+							<a href="#addSubadmin" class="navs">
+								添加用户
+							</a>
+						</div>
+						
+					</div>
+				</div>
+				<!---->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+								信息发布
+							</a>
+						</h4>
+					</div>
+					<div id="collapseTwo" class="panel-collapse collapse ">
+						<div class="panel-body ">
+							<a href="#select" class="navs">
+								发布通知
+							</a>
+						</div>
+						<div class="panel-body ">
+							<a href="#ckfk" class="navs">
+								反馈查看
+							</a>
+						</div>
+					</div>
+				</div>
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<h4 class="panel-title">
+							<a data-toggle="collapse" data-parent="#accordion" 
+							   href="#collapseThree">
+								信息添加
+							</a>
+						</h4>
+					</div>
+					<div id="collapseThree" class="panel-collapse collapse">
+						<div class="panel-body ">
+							<a href="#addIfno" class="navs">
+								添加更新
+							</a>
+						</div>
+						<!--<div class="panel-body ">
+							<a href="#addyongd" class="navs">
+								录入用电
+							</a>
+						</div>-->
+					</div>
+				</div>
+	
+				
+			</div>
+			<!--右边部分-->
+			<div class="pull-right"  style="height: 100%; width: 78%; margin-left: 2% ;">
+				<!--用户详情-->
+				<div class="infos" id="userInfo" style="width: 100%;">
+					<form role="form">
+						<div class="form-group">
+							<span for="name" style="font-family: '微软雅黑'; font-size: 20px; font-weight: 100;">用户信息查询</span>
+							<!--</br>-->
+							<hr/>
+							<div class="input-group">
+								<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">
+									账号：
+								</span>
+								<input type='text' id="Sxh" value="" class="form-control" style="width: 25%; line-height:40px;height: 40px;" />
+							</div>
+							<br />
+							<div class="input-group">
+								<span class="pull-left" style="display: inline-block;line-height: 40px; height: 40px;">
+									业种：
+								</span>
+								<select onchange="lqbj(document.getElementById('Syx').value);" class="form-control lqlh" id="Syx" style="width: 25%;line-height: 40px; height: 40px;">
+									
+								</select>
+								<span class="pull-left" style="display: inline-block;margin-left: 10px; line-height: 40px; height: 40px;">
+									业种分区：
+								</span>
+								<select class="form-control lqbj" id="Sbj" style="width: 25%;line-height: 40px; height: 40px;margin-right: 20px;">
+									
+								</select>
+								<button type="button" class="btn btn-primary" id="btncxyh">查询</button>
+							</div>
+							<br />
+							
+						</div>
+						
+					</form>
+					
+					<div class="group " id="bg01" style="margin-top: 10px;width: 100%;height: 500px;">
+						<div class="infoss" style="">
+							<table class="table table-bordered"style="text-align: center;">
+								<!--<caption>边框表格布局</caption>-->
+								<thead>
+									<tr style="background-color: #BEBEC3; ">
+										<th style="width:6% ;text-align: center;">序号</th>
+										<th style="width:9% ;text-align: center;">所属业种</th>
+										<th style="width:9% ;text-align: center;">分区</th>
+										<th style="width:9% ;text-align: center;">专柜</th>
+										<th style="width:9% ;text-align: center;">负责人</th>
+										<th style="width:9% ;text-align: center;">联系方式</th>
+										<th style="width:10% ;text-align: center;">已用电量</th>
+										<th style="width:9% ;text-align: center;">余额</th>
+										<th style="width:9% ;text-align: center;">充值</th>
+										<th style="width:9% ;text-align: center;">录入用电</th>
+										<th style="width:9% ;text-align: center;">操作</th>
+									</tr>
+								</thead>
+								<tbody id="tables01">
+								</tbody>
+							</table>
+						</div>
+						<!--fenye-->
+						<div>
+						   <ul class="page" id="page">
+						   </ul>
+						</div>
+					</div>
+				</div>
+			
+				<!--消息发布-->
+				<div class="infos" id="select" style="display: none; width: 100%;">
+					<form role="form">
+						<div class="form-group">
+							<span for="name" style="font-family: '微软雅黑'; font-size: 20px; font-weight: 100;">通知发布</span>
+							<!--</br>-->
+							<hr/>
+							<div class="input-group">
+								<textarea id="addnotice" class="form-control" rows="3"style="width: 100%; height: 180px; font-size: 0.8rem;"></textarea>
+							</div>
+							<br />
+						</div>
+						<div class="input-group" style="text-align: center;">
+							<button type="button"id="btnfb" class="btn btn-primary">发布</button>
+						</div>
+					</form>
+				
+				</div>
+				<!--用户添加-->
+				<div class="infos" id="addSubadmin" style="display: none;width: 100%;">
+					<form role="form">
+						<div class="form-group">
+							<span for="name" style="font-family: '微软雅黑'; font-size: 20px; font-weight: 100;">添加专柜</span>
+							<!--</br>-->
+							<hr/>
+							<div class="input-group ">
+								<span class="pull-left" style="text-indent:3em;display: inline-block; line-height: 40px; height: 40px;">
+									姓名：
+								</span>
+								<input type='text' value="" class="form-control" id='addUserxm' style="width: 25%; line-height:40px;height: 40px;" />
+							</div>
+							<br />
+							<div class="input-group ">
+								<span class="pull-left" style="text-indent:3em;display: inline-block; line-height: 40px; height: 40px;">
+									账号：
+								</span>
+								<input type='text' value="" class="form-control" id='addUserxh' style="width: 25%; line-height:40px;height: 40px;" />
+							</div>
+							<br />
+							<div class="input-group ">
+								<span class="pull-left" style="text-indent:3em;display: inline-block; line-height: 40px; height: 40px;">
+									业种：
+								</span>
+								<select class="form-control lqlh" onchange="lqbj(document.getElementById('addUseryz').value);" id="addUseryz" style="width: 25%;line-height: 40px; height: 40px;">
+							
+								</select>
+								<span class="pull-left"  style=" margin-left: 10px; display: inline-block; line-height: 40px; height: 40px;">
+									分区业种：
+								</span>
+								<select class="form-control lqbj" id="addUserfq" style="width: 25%;line-height: 40px; height: 40px;">
+									
+								</select>
+								<span class="pull-left" style="display: inline-block; margin-left: 10px;  line-height: 40px; height: 40px;">
+									专柜：
+								</span>
+								<input type='text' id="addUserzg" value="" class="form-control" style="width: 25%; line-height:40px;height: 40px;" />
+							
+								<!--<input type='text' value="" class="form-control" id='' style="width: 30%; line-height:40px;height: 40px;" />-->
+							</div>
+							
+							<br />
+							<div class="input-group">
+								<span class="pull-left" style="text-indent:3em;display: inline-block; line-height: 40px; height: 40px;">
+									性别：
+								</span>
+								<select class="form-control" style="width: 25%; height: 40px" id="seex">
+									<option value="1">男</option>
+									<option value="2">女</option>
+								</select>
+							</div>
+							<br />
+							<div class="input-group ">
+								<span class="pull-left" style="text-indent:1em;display: inline-block; line-height: 40px; height: 40px;">
+									身份证号：
+								</span>
+								<input type='text' value="" class="form-control" id='addUserid' style="width: 25%; line-height:40px;height: 40px;" />
+							</div>
+							<br />
+							<div class="input-group ">
+								<span class="pull-left" style="text-indent:1em;display: inline-block; line-height: 40px; height: 40px;">
+									联系方式：
+								</span>
+								<input type='text' value="" class="form-control" id='addUserTel' style="width: 25%; line-height:40px;height: 40px;" />
+							</div>
+							<br />
+							<div class="input-group" style="text-align: center;width: 50%;">
+								<button type="button" id="btnAuser" class="btn btn-primary">添加</button>
+								<button style="margin-left: 10px;" type="button" class="btn btn-danger" id="yhmb">下载模板</button>
+								<button style="margin-left: 10px;" type="button" class="btn btn-danger" id="yhdrs">导入</button>
+							</div>
+						</div>
+					</form>
+				</div>
+
+				<!--添加新的yezhong-->
+				<div class="infos" id="addIfno" style="width: 100%;display: none;">
+						<div class="form-group">
+							<span for="name" style="font-family: '微软雅黑'; font-size: 20px; font-weight: 100;">添加新信息</span>
+							<!--</br>-->
+							<hr/>
+							<div class="input-group" >
+								<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">
+									业种：
+								</span>
+								<input type='text' id="addxy" value="" class="form-control" style="width: 20%; line-height:40px;height: 40px;" />
+								<button style="margin-left: 30px;" type="button" class="btn btn-primary" id="btnyz">添加</button>
+								<button style="margin-left: 10px;" type="button" class="btn btn-danger" id="hqmb">获取模板</button>
+								<button style="margin-left: 10px;" type="button" class="btn btn-danger" id="yzdrbtn">导入</button>
+								<!--br-->
+								<br />
+							</div>
+							<br />
+							<hr/>
+							
+							<div class="input-group">
+								<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">
+									业种：
+								</span>
+								<select class="form-control lqlh" id="addfqY" style="width: 20%;">
+									
+								</select>
+								<span class="pull-left" id="yzfqxl" style="display: inline-block; margin-left: 10px;  line-height: 40px; height: 40px;">
+									业种分区：
+								</span>
+								<input type='text' id="addfqQ" value="" class="form-control" style="width: 20%; line-height:40px;height: 40px;margin-right: 20px;" />
+								<button style="margin-left: 10px;" type="button" class="btn btn-primary" id="btnfq">添加</button>
+								<button style="margin-left: 10px;" type="button" class="btn btn-danger" id="fqmb">下载模板</button>
+								<button style="margin-left: 10px;" type="button" class="btn btn-danger" id="drfq">导入</button>
+							</div>
+							<br />
+							<div class="input-group">
+								
+							</div>
+							
+						</div>
+						<br />
+						<div class="form-group">
+							<span for="name" style="font-family: '微软雅黑'; font-size: 20px; font-weight: 100;">更改价格</span>
+							<!--</br>-->
+							<hr/>
+							<div class="input-group">
+								<span class="pull-left" style="display: inline-block; margin-left: 10px;  line-height: 40px; height: 40px;">
+									原价格：
+									<span id="Yprice">
+										
+									</span>
+								</span>
+								
+							</div>
+							<br />
+							<div class="input-group">
+								
+								<span class="pull-left" style="display: inline-block; margin-left: 10px;  line-height: 40px; height: 40px;">
+									价格（度/元）：
+								</span>
+								<input type='text' id="newprice" value="" class="form-control" style="width: 20%; line-height:40px;height: 40px;" />
+								<button style="margin-left: 30px;" type="button" class="btn btn-primary" id="btnggjg">更改</button>
+							</div>
+						</div>
+					</div>
+				<!--录入用电-->
+				<div class="infos" id="addyongd" style="width: 100%;display: none;">
+					<div class="input-group">
+						<span for="name" style="font-family: '微软雅黑'; font-size: 20px; font-weight: 100;">录入用电</span>
+							<!--</br>-->
+							<hr/>
+						<span class="pull-left" style="display: inline-block;line-height: 40px; height: 40px;">
+							负责人：
+							<span id="Sxfzr" value="">
+								
+							</span>
+						</span>
+					</div>
+					<br/>
+						<!--<select class="form-control lqlh" id="" style="width: 25%;line-height: 40px; height: 40px;">
+						</select>-->
+						<!--<span class="pull-left" style="display: inline-block;margin-left: 10px; line-height: 40px; height: 40px;">
+							业种分区：
+						</span>-->
+						<!--<select class="form-control lqbj" id="" style="width: 25%;line-height: 40px; height: 40px;">
+						
+						</select>-->
+					<div class="input-group">
+						<span class="pull-left" style="display: inline-block;margin-left: 10px; line-height: 40px; height: 40px;">
+							专柜：
+							<span id="Sxzg" value="">
+								
+							</span>
+						</span>
+					</div>
+					<br/>
+						<!--<select class="form-control " id="" style="width: 25%;line-height: 40px; height: 40px;">
+						
+						</select>-->
+					
+					<div class="input-group">
+						<span class="pull-left" style="display: inline-block; margin-left: 10px;  line-height: 40px; height: 40px;">
+							用电度数：
+						</span>
+						<input type='text' id="used" value="" class="form-control" style="width: 20%; line-height:40px;height: 40px;" />
+					</div>
+					<br/>
+					<div class="input-group">
+						<button style="margin-left: 30px;" type="button" class="btn btn-primary" id="btnxjyd">添加</button>
+					</div>
+				</div>
+				<!--充值-->
+				<div class="infos" id="rechord" style="display: none;">
+					<form role="form">
+						<div class="form-group">
+							<span for="name" style="font-family: '微软雅黑'; font-size: 20px; font-weight: 100;">充值缴费</span>
+							<!--</br>-->
+							<hr/>
+								<div class="input-group">
+									<!--<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">-->
+										<!--账号：-->
+										<!--<span id="rechordId" valve="">-->
+											<!---->
+										<!--</span>-->
+									<!--</span>-->
+									<!--<input type='text' value="yanglizhi" class="form-control" style="width: 30%; line-height:40px;height: 40px;" />-->
+								</div>
+								<br/>
+								<div class="input-group">
+										<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">
+											负责人：
+											<span id="rechordname" valve="">
+
+											</span>
+										</span>
+									<!--<input type='text' value="yanglizhi" class="form-control" style="width: 30%; line-height:40px;height: 40px;" />-->
+								</div>
+								<br/>
+								<div class="input-group">
+									<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">
+										专柜：
+										<span id="rechordzg" valve="">
+
+										</span>
+									</span>
+									<!--<input type='text' value="yanglizhi" class="form-control" style="width: 30%; line-height:40px;height: 40px;" />-->
+								</div>
+								<br/>
+								<div class="input-group">
+										<span class="pull-left" style="display: inline-block; line-height: 40px; height: 40px;">
+											充值金额：
+										</span>
+									<input type='text' value="" id="czje" class="form-control" style="width: 30%; line-height:40px;height: 40px;" />
+								</div>
+								<br />
+							<div class="input-group" style="text-align: center;">
+								<button type="button" id="btncz" class="btn btn-primary">充值</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!--查看反馈-->
+				<div class="infos" id="ckfk" style="width: 100%;display: none;">
+					<div class="col-lg-12">
+			            <div class="panel panel-default">
+			                <div class="panel-heading">
+			                    <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+			                    	反馈列表  
+			                </div>
+			                <div class="table-responsive">
+			                    <div id="w1" class="grid-view hide-resize" data-krajee-grid="kvGridInit_9bad964f">
+			                    	<div id="w1-container" class="table-responsive kv-grid-container">
+			                    		<div class="gongg" style="margin: 10px;">
+			                    			<div class="" id="fkxx">
+			                    				<table class="kv-grid-table table table-hover table-bordered kv-table-wrap">
+							    					<thead>
+							    						<tr class="info">
+							    							<th data-col-seq="1" style="width: 8.22%;">序号</th>
+							    							<th data-col-seq="2" style="width: 10.86%;">时间</th>
+							    							<th data-col-seq="3" style="width: 14.14%;">反馈人</th>
+							    							<th data-col-seq="4" style="width: 18.57%;">反馈内容</th>
+							    						</tr>
+							    					</thead>
+							    					<tbody id="table04">
+		
+							    					</tbody>
+							    				</table>
+			                    			</div>
+			                    		</div>
+			                    		<div class="fkpage" style="margin-bottom: 10px;text-align:center;">
+			                    			<a  class="btn btn-xs btn-danger" id="Syt" style="margin-left: 30px;display: inline-block; width: 100px;">上一页</a>
+					                    	<a  class="btn btn-xs btn-warning" id="Xyt" style="margin-left: 30px; display: inline-block;width: 100px;">下一页</a>
+			                    		</div>
+			                    	</div>  
+			                    </div>               
+			                </div>
+			            </div>
+			        </div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/accountS.js"></script>
+	<script src="js/account.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/jquery.form.js" type="text/javascript" charset="utf-8"></script>
+	<script src="../js/Tools.js"></script>
+	<script type="text/javascript">
+		//
+		$(function(){
+			$('#outLogin').on('click',function(){
+				layer.open({
+						content: '您确定要退出登录吗', 
+						btn: ['确认','取消'],  
+				         yes: function(index, layero) {  
+					        window.location.href= 'index.html';
+					    },
+					    btn2: function(index, layero) {  
+  							layer.msg('您取消了操作');
+                        }  
+				    });
+    		
+    		
+    		})
+			$('#qhdl').on('click',function(){
+				layer.open({
+						content: '您确定要切换用户登录吗？', 
+						btn: ['确认','取消'],  
+				         yes: function(index, layero) {  
+					        window.location.href= '../index.html';
+					    },
+					    btn2: function(index, layero) {  
+  							layer.msg('您取消了操作');
+                        }  
+				    });
+    		
+    		
+    		})	
+			 //拉取业种下拉框中的信息
+                lqlh();
+                //拉取业种分区下拉框中的信息
+				lqbj(6);
+				//拉取用户的信息并分页
+				searchShockP(1);
+				
+			//以下控制选项卡及其内容的显示
+			$('.panel-body').each(function(index){
+
+                $(this).on('click',function(){
+
+                    $('.panel-body').removeClass("active");
+                    $(this).addClass("active");
+                    strings = $(this).children()[0].href;
+                    str = "#";
+					var str_after = strings.split(str)[1];
+					if(str_after=='addIfno'){
+						getDyjg();
+					}else if(str_after=='userInfo'){
+						searchShockP(1);
+					}
+					$('.infos').each(function(index){
+						$(this).css("display","none");
+					});
+					document.getElementById(str_after).style.display = "block";
+
+                })
+               
+           })
+		})
+		
+		//首页上一条】
+			$('#Xyt').on("click",function(){
+				//获取当前页+1.得到要拿到的页码（也就是下一页的页码）
+				var pages = (parseInt(sessionStorage.getItem("page"))+1);
+//				判断现在的页码+1后,是否大于总页码
+				if(pages>sessionStorage.getItem("allpage")){
+					//大于，则说明已经超过了最后一页的范围，提示没有更多数据
+					layer.open({
+						content: '没有更多反馈',
+						time:1,
+					   });
+				}else{
+					//小于或等于则向服务器请求拉取数据
+					searchnotice(pages);
+				}
+				
+			})
+			//首页下一条按钮
+			$('#Syt').on("click",function(){
+				//获取当前页-1.得到要拿到的页码（也就是上一页的页码）
+				var pages = (parseInt(sessionStorage.getItem("page"))-1);
+//				判断页码是否小于1页
+				if(pages<1){
+					////则说明已经超过了最后一页的范围，提示没有更多数据
+					layer.open({
+						content: '没有更多反馈',
+						time:1,
+					   });
+				}else{
+					//大于或等于则向服务器请求拉取数据
+					searchnotice(pages);
+				}
+				
+			})
+			searchnotice(1);
+			function searchnotice(pages){
+				var pages = pages;
+				$.ajax({
+					type: "POST",//post方式请求数据
+					url: config.Url+config.Urls.Searchfeedback,//请求的地址
+					data: {
+						'page':pages,
+					},
+					dataType: "json",//返回的数据格式
+					success: function(data){//成功后的响应
+						if(data.errorCode == config.Errors.success){
+							var HTMLs ="";
+							for(var i=0;i<data.allinfo.length;i++){
+								if (i%2==0) {
+									HTMLs +="<tr class='' data-key='6'><td data-col-seq='1'>"+(i+1)+"</td><td data-col-seq='2' >"+data.allinfo[i].time+"</td><td data-col-seq='3' >"+data.allinfo[i].name+"</td><td data-col-seq='4'>"+data.allinfo[i].content+"</td></tr>"
+								}
+								else{
+									HTMLs +="<tr class='info' data-key='6'><td data-col-seq='1'>"+(i+1)+"</td><td data-col-seq='2' >"+data.allinfo[i].time+"</td><td data-col-seq='3' >"+data.allinfo[i].name+"</td><td data-col-seq='4'>"+data.allinfo[i].content+"</td></tr>"
+								}
+								
+							}
+							$("#table04").html(HTMLs);
+							//记录现在是第几页
+							sessionStorage.setItem("page",data.pageinfo.page);
+							sessionStorage.setItem('allpage',data.pageinfo.lastpage)
+							
+						}
+						else{
+							layer.open({
+								content: '反馈获取失败',
+								time:2,
+							  });
+							
+						}
+					},
+					error:function(){
+						console.log("123")
+					}
+				});
+				
+			}
+		//创建节点
+		$('#btncxyh').on('click',function(){
+			//查询用户信息并显示
+			searchShockP(1);
+			$('#bg01').css('display',"block")	
+		});
+		$('#btnggjg').on('click',function(){
+			updateYdjg();
+		});
+		$('#btnfb').on('click',function(){
+			addNotice();
+		});
+		$('#btnyz').on('click',function(){
+			addxy();
+		});
+		$('#btnfq').on('click',function(){
+			addbj();
+		});
+
+		$('#btnAuser').on('click',function(){
+			addStudent()
+		});
+		$('#yhmb').on('click',function(){
+            window.open(config.Url+config.Urls.Exportmodel+"?type=3");
+		});
+		$('#hqmb').on('click',function(){
+            window.open(config.Url+config.Urls.Exportmodel+"?type=1");
+		});
+		$('#fqmb').on('click',function(){
+			window.open(config.Url+config.Urls.Exportmodel+"?type=2");
+		});
+		//业种导入
+		$('#yzdrbtn').on('click',function() {
+//			弹出一个新的页面，选择导入的数据
+			layer.open({
+				type: 1 //Page层类型
+				,
+				area: ['500px', '300px']
+				,
+				shade: 0.6 //遮罩透明度
+				,
+				maxmin: true //允许全屏最小化
+				,
+				anim: 1 //0-6的动画形式，-1不开启
+				,
+				content: "<div class='btnimport' style='margin:100px'><form class='myupload' action='" + config.Url + config.Urls.Importtype + "' method='post' enctype='multipart/form-data' id='udpaE'><input class='fileupload' type='file' name='excel' data-id=''></form><br/><button id='yzhong' class='btn btn-danger'>导入</button></div>"
+			});
+
+			$('#yzhong').on('click', function () {
+				var nodes = $("#udpaE");
+				drwj(nodes);
+			});
+		})
+		//分区导入
+		$('#drfq').on('click',function() {
+//			弹出一个新的页面，选择导入的数据
+			layer.open({
+				type: 1 //Page层类型
+				,
+				area: ['500px', '300px']
+				,
+				shade: 0.6 //遮罩透明度
+				,
+				maxmin: true //允许全屏最小化
+				,
+				anim: 1 //0-6的动画形式，-1不开启
+				,
+				content: "<div class='btnimport' style='margin:100px'><form class='myupload' action='" + config.Url + config.Urls.Importzone + "' method='post' enctype='multipart/form-data' id='fqfrom'><input class='fileupload' type='file' name='excel' data-id=''></form><br/><button id='fenqu' class='btn btn-danger'>导入</button></div>"
+			});
+			$('#fenqu').on('click', function () {
+				var nodes = $("#fqfrom");
+				var typeid = $('#addfqY').val();
+				if(typeid=="" ||typeid==undefined){
+					layer.closeAll();
+					layer.open({
+						content:"请选择业种",
+						time:2
+					})
+					return;
+				}
+				var data = {'typeid': typeid};
+				drwj(nodes, data);
+			});
+		})
+		$('#yhdrs').on('click',function() {
+//			弹出一个新的页面，选择导入的数据
+			layer.open({
+				type: 1 //Page层类型
+				,
+				area: ['500px', '300px']
+				,
+				shade: 0.6 //遮罩透明度
+				,
+				maxmin: true //允许全屏最小化
+				,
+				anim: 1 //0-6的动画形式，-1不开启
+				,
+				content: "<div class='btnimport' style='margin:100px'><form class='myupload' action='" + config.Url + config.Urls.Importuser + "' method='post' enctype='multipart/form-data' id='usersfrom'><input class='fileupload' type='file' name='excel' data-id=''></form><br/><button id='userss' class='btn btn-danger'>导入</button></div>"
+			});
+			$('#userss').on('click', function () {
+				var nodes = $("#usersfrom");
+				var typeid = $('#addUseryz').val();
+				var zoneid = $('#addUserfq').val();
+				if(typeid=="" ||typeid==undefined ||zoneid=="" ||zoneid==undefined){
+					layer.closeAll();
+					layer.open({
+						content:"请选择业种和分区",
+						time:2
+					})
+					return;
+				}
+				var data = {'typeid': typeid,'zoneid':zoneid};
+				drwj(nodes, data);
+				layer.closeAll();
+			});
+		})
+
+		
+	</script>
+</html>
